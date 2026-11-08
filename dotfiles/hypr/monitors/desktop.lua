@@ -6,20 +6,20 @@
 -- a second screen to the right of a 2560-wide one starts at "2560x0".
 -- Saving this file reloads Hyprland, so you can tune it live.
 
--- Main monitor (left)
+-- Secondary monitor (Left)
 hl.monitor({
     output   = "DP-1",             -- TODO: real connector name
-    mode     = "1920x1080@144",    -- TODO: resolution@refresh
+    mode     = "1920x1080@60",    -- TODO: resolution@refresh
     position = "0x0",
     scale    = "1",
 })
 
--- Second monitor (right)
+-- Main monitor (Right)
 hl.monitor({
     output   = "HDMI-A-1",         -- TODO: real connector name
-    mode     = "1920x1080@60",     -- TODO: resolution@refresh
+    mode     = "3840x2160@60",     -- TODO: resolution@refresh
     position = "1920x0",           -- = main monitor's width
-    scale    = "1",
+    scale    = "1.2",
 })
 
 -- Fallback for any other connector: preferred mode, placed automatically.
