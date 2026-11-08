@@ -21,9 +21,9 @@
       graphics.enable = true;
 
       hibernation = {
-        enable = false;
-        # resumeDevice = "/dev/mapper/luks-…";
-        # resumeOffset = "…"; # sudo btrfs inspect-internal map-swapfile -r /swap/swapfile
+        enable = true;
+        resumeDevice = "/dev/mapper/luks-8a160b50-bda6-4fe3-b373-30688c8481dc";
+        resumeOffset = "7087360"; # sudo btrfs inspect-internal map-swapfile -r /swap/swapfile
       };
     };
 
@@ -90,19 +90,19 @@
   # Then uncomment, fill in the UUID, `git add`, rebuild.
   # (luksFormat asks for a passphrase too — keep it as a recovery key.)
   # ---------------------------------------------------------------------------
-  # environment.etc.crypttab.text = ''
-  #   data UUID=<luks-uuid> /etc/secrets/data.key luks,nofail
-  # '';
-  # fileSystems."/data" = {
-  #   device = "/dev/mapper/data";
-  #   fsType = "btrfs";
-  #   options = [
-  #     "compress=zstd"
-  #     "noatime"
-  #     "nofail" # boot carries on if the drive is missing or fails to unlock
-  #   ];
-  # };
-  # services.btrfs.autoScrub.fileSystems = [ "/data" ];
+  environment.etc.crypttab.text = ''
+    data UUID=1a263bb4-3f6e-451a-b199-ab8fa1735aae /etc/secrets/data.key luks,nofail
+  '';
+  fileSystems."/data" = {
+    device = "/dev/mapper/data";
+    fsType = "btrfs";
+    options = [
+      "compress=zstd"
+      "noatime"
+      "nofail" # boot carries on if the drive is missing or fails to unlock
+    ];
+  };
+  services.btrfs.autoScrub.fileSystems = [ "/data" ];
 
   system.stateVersion = "26.05";
 }
