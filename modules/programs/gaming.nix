@@ -1,7 +1,7 @@
-# Gaming: Steam, gamemode, Discord, MangoHud
+# Gaming: Steam, gamemode, Discord, MangoHud, Prism Launcher
 { config, lib, ... }:
 {
-  options.my.programs.gaming.enable = lib.mkEnableOption "Steam, gamemode, Discord and MangoHud";
+  options.my.programs.gaming.enable = lib.mkEnableOption "Steam, gamemode, Discord, MangoHud and Prism Launcher";
 
   config = lib.mkIf config.my.programs.gaming.enable {
     my.internal.needsHome = [ "my.programs.gaming" ];
@@ -30,6 +30,7 @@
         {
           home.packages = with pkgs; [
             discord
+            prismlauncher
           ];
 
           programs.mangohud.enable = true;

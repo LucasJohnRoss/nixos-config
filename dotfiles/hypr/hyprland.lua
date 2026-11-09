@@ -207,6 +207,7 @@ hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(editor))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(passwordManager))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(calculator))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 
 --- Noctalia shell ---
 hl.bind(mainMod .. " + R",         hl.dsp.exec_cmd(noctalia .. "panel-toggle launcher"))  -- was rofi -show drun
@@ -326,7 +327,14 @@ hl.window_rule({
     name = "float-calculator",
     match = { class = "org.gnome.Calculator" },
     float = true,
-    })
+})
+
+hl.window_rule({
+    name = "float-bitwarden",
+    match = { class = "bitwarden" },
+    float = true,
+    size = { 1000, 700 },
+})
 
 
 -- Blur behind Noctalia's bar, panels, notifications and OSD, and leave their
@@ -343,8 +351,3 @@ hl.layer_rule({
 })
 
 hl.workspace_rule({ workspace = "special:systemInfoWorkspace", on_created_empty = systemInfo })
---hl.workspace_rule({ workspace = "special:browserWorkspace", on_created_empty = browser })
---hl.workspace_rule({ workspace = "special:notionWorkspace", on_created_empty = notion })
-
-
-

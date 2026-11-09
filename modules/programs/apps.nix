@@ -61,7 +61,7 @@
             (pkgs.brave-origin or pkgs.brave) # Uses unstable branch, fallsback to stable if necessary
             proton-vpn
             bitwarden-desktop
-            notion-electron
+            # notion-electron
             qbittorrent
             vlc
           ];
