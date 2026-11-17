@@ -16,7 +16,7 @@ hl.monitor({
 
 -- Main monitor (Right)
 hl.monitor({
-    output   = "HDMI-A-1",         -- TODO: real connector name
+    output   = "DP-2",         -- TODO: real connector name
     mode     = "3840x2160@60",     -- TODO: resolution@refresh
     position = "1920x0",           -- = main monitor's width
     scale    = "1.5",

@@ -1,5 +1,5 @@
 # Gaming: Steam, gamemode, Discord, MangoHud, Prism Launcher
-{ config, lib, ... }:
+{ config, lib, pkgs, ... }:
 {
   options.my.programs.gaming.enable = lib.mkEnableOption "Steam, gamemode, Discord, MangoHud and Prism Launcher";
 
@@ -18,6 +18,7 @@
       enable = true;
       remotePlay.openFirewall = true; # Steam Remote Play / Steam Link
       localNetworkGameTransfers.openFirewall = true; # copy games between PCs on the LAN
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
     };
 
     # Feral GameMode: CPU governor/priority boost while a game runs.
